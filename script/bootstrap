@@ -20,4 +20,5 @@ docker create --name builder-4 -p 19124:22 --volumes-from builder-storage builde
 
 sudo cp host/builder.conf host/builder-*.conf /etc/init/
 
+sudo initctl reload-configuration
 sudo start builder
