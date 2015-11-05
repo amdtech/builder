@@ -8,7 +8,7 @@ deb https://apt.dockerproject.org/repo ubuntu-trusty main
 EOF
 
 sudo apt-get update
-sudo apt-get install docker-engine
+sudo apt-get install docker-engine -y
 
 ## to be replaced by the registry someday
 docker build --rm -t builder .
