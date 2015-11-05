@@ -1,0 +1,4 @@
+#!/bin/sh -e
+chown -R jenkins.jenkins /data
+
+exit 0

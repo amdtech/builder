@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# set up docker
+sudo apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+
+cat > /etc/apt/sources.list.d/docker.list << EOF
+deb https://apt.dockerproject.org/repo ubuntu-trusty main
+EOF
+
+sudo apt-get update
+sudo apt-get install docker-engine
+
+## to be replaced by the registry someday
+docker build --rm -t builder .
+docker create -v /bundles --name builder-storage builder /bin/true
+docker create --name builder-1 -p 19121:22 --volumes-from builder-storage builder
+docker create --name builder-2 -p 19122:22 --volumes-from builder-storage builder
+docker create --name builder-3 -p 19123:22 --volumes-from builder-storage builder
+docker create --name builder-4 -p 19124:22 --volumes-from builder-storage builder
+
+sudo cp host/builder.conf host/builder-*.conf /etc/init/
+
+sudo start builder
