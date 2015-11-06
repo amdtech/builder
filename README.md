@@ -33,7 +33,7 @@ echo /swapfile   none    swap    sw    0   0 >> /etc/fstab
 ```
 5. Clone this repo to the server.
 ```sh
-git clone git@github.com:liftopia/builder.git
+git clone https://github.com/liftopia/builder.git
 ```
 6. Bootstrap!
 ```sh
