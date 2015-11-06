@@ -13,10 +13,10 @@ sudo apt-get install docker-engine -y
 ## to be replaced by the registry someday
 docker build --rm -t builder .
 docker create -v /bundles --name builder-storage builder /bin/true
-docker create --name builder-1 -p 19121:22 --volumes-from builder-storage builder
-docker create --name builder-2 -p 19122:22 --volumes-from builder-storage builder
-docker create --name builder-3 -p 19123:22 --volumes-from builder-storage builder
-docker create --name builder-4 -p 19124:22 --volumes-from builder-storage builder
+docker create --name builder-1 -m 768m -p 19121:22 --volumes-from builder-storage builder
+docker create --name builder-2 -m 768m -p 19122:22 --volumes-from builder-storage builder
+docker create --name builder-3 -m 768m -p 19123:22 --volumes-from builder-storage builder
+docker create --name builder-4 -m 768m -p 19124:22 --volumes-from builder-storage builder
 
 sudo cp host/builder.conf host/builder-*.conf /etc/init/
 
