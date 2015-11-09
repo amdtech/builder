@@ -4,7 +4,8 @@
 PACKAGES="git memcached mysql-server-5.6 openjdk-7-jre-headless build-essential \
           libmysqlclient-dev libgmp-dev libfontconfig python-pip nodejs gawk \
           libreadline6-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 autoconf \
-          libgdbm-dev libncurses5-dev automake libtool bison pkg-config libffi-dev"
+          libgdbm-dev libncurses5-dev automake libtool bison pkg-config libffi-dev \
+          unzip"
 curl -sL https://deb.nodesource.com/setup_0.12 | bash -
 apt-get update
 apt-get upgrade -y
